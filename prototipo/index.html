@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>FitTrack - Wireframes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #f4f5f7;
+      color: #222;
+      padding: 16px;
+    }
+
+    h1, h2, h3 {
+      margin-bottom: 8px;
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Barra de topo para alternar as telas */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    header .logo-placeholder {
+      width: 48px;
+      height: 48px;
+      border: 2px solid #999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #999;
+    }
+
+    .top-nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .top-nav button {
+      border: 1px solid #ccc;
+      background: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .top-nav button.active {
+      border-color: #0066cc;
+      background: #e6f0ff;
+    }
+
+    main {
+      margin-top: 8px;
+    }
+
+    section.screen {
+      display: none;
+    }
+
+    section.screen.active {
+      display: block;
+    }
+
+    /* Cartões genéricos */
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      margin-bottom: 16px;
+    }
+
+    .card-header {
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .card-subtitle {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .col {
+      flex: 1 1 0;
+      min-width: 220px;
+    }
+
+    /* Inputs / botões */
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      background: #0066cc;
+      color: #fff;
+      margin-right: 8px;
+    }
+
+    .btn-secondary {
+      background: #e0e0e0;
+      color: #333;
+    }
+
+    .btn-outline {
+      background: #fff;
+      border: 1px solid #ccc;
+      color: #333;
+    }
+
+    .btn-full {
+      width: 100%;
+      text-align: center;
+    }
+
+    .link-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin: 6px 0;
+    }
+
+    .checkbox-inline {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      margin: 8px 0;
+    }
+
+    .checkbox-inline input {
+      width: auto;
+    }
+
+    /* Tabelas simples */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 6px 8px;
+      text-align: left;
+    }
+
+    th {
+      background: #f0f0f0;
+    }
+
+    /* Sidebar */
+    .layout-with-sidebar {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 16px;
+    }
+
+    .sidebar {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      padding: 16px;
+      height: fit-content;
+    }
+
+    .sidebar-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      font-size: 14px;
+    }
+
+    .sidebar li {
+      padding: 6px 0;
+      border-bottom: 1px solid #f0f0f0;
+      cursor: pointer;
+    }
+
+    .sidebar li:last-child {
+      border-bottom: none;
+    }
+
+    /* Bloco de gráfico / calendário (placeholder visual) */
+    .placeholder-box {
+      border: 1px dashed #bbb;
+      border-radius: 8px;
+      min-height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #777;
+      padding: 8px;
+      text-align: center;
+    }
+
+    /* Mural */
+    .feed-item {
+      border-bottom: 1px solid #eee;
+      padding: 8px 0;
+      font-size: 13px;
+    }
+
+    .feed-meta {
+      font-size: 12px;
+      color: #777;
+      margin-top: 4px;
+    }
+
+    .feed-actions {
+      margin-top: 4px;
+      font-size: 12px;
+      color: #555;
+    }
+
+    /* Responsivo simples */
+    @media (max-width: 768px) {
+      .layout-with-sidebar {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-placeholder">LOGO</div>
+    <div>
+      <h1>FitTrack - Wireframes</h1>
+      <small>Login • Dashboard Aluno • Ficha de Treino Professor</small>
+    </div>
+    <nav class="top-nav">
+      <button data-target="tela-login" class="active">Login</button>
+      <button data-target="tela-dashboard-aluno">Dashboard Aluno</button>
+      <button data-target="tela-ficha-professor">Ficha Professor</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 1. Tela de Login / Autenticação -->
+    <section id="tela-login" class="screen active">
+      <div class="card" style="max-width: 420px; margin: 0 auto;">
+        <div class="card-header">Login</div>
+        <div class="card-subtitle">Acesse sua conta FitTrack</div>
+
+        <div class="form-group">
+          <label for="login-email">E-mail</label>
+          <input type="email" id="login-email" placeholder="seuemail@exemplo.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="login-senha">Senha</label>
+          <input type="password" id="login-senha" placeholder="••••••••" />
+        </div>
+
+        <button class="btn btn-full">Login</button>
+
+        <div class="link-row">
+          <a href="#">Recuperar senha</a>
+          <a href="#">Cadastro</a>
+        </div>
+
+        <div class="checkbox-inline">
+          <input type="checkbox" id="login-2fa" />
+          <label for="login-2fa">Autenticação de Dois Fatores (2FA)</label>
+        </div>
+
+        <button class="btn btn-secondary btn-full">Login com Rede Social</button>
+      </div>
+    </section>
+
+    <!-- 2. Tela Inicial - Dashboard (Aluno) -->
+    <section id="tela-dashboard-aluno" class="screen">
+      <div class="layout-with-sidebar">
+        <!-- Menu lateral -->
+        <aside class="sidebar">
+          <div class="sidebar-title">Navegação</div>
+          <ul>
+            <li>Meu Treino</li>
+            <li>Mural</li>
+            <li>Progresso</li>
+            <li>Configurações</li>
+          </ul>
+        </aside>
+
+        <!-- Conteúdo principal -->
+        <div>
+          <!-- Resumo diário + botão registrar treino -->
+          <div class="card">
+            <div class="row" style="align-items: center; margin-bottom: 8px;">
+              <div class="col">
+                <div class="card-header">Resumo do Treino de Hoje</div>
+                <div class="card-subtitle">Exercícios, séries e cargas planejadas</div>
+              </div>
+              <div class="col" style="text-align: right;">
+                <button class="btn">Registrar Novo Treino</button>
+              </div>
+            </div>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Exercício</th>
+                  <th>Séries</th>
+                  <th>Reps</th>
+                  <th>Carga</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Supino Reto</td>
+                  <td>4</td>
+                  <td>10</td>
+                  <td>40 kg</td>
+                </tr>
+                <tr>
+                  <td>Agachamento Livre</td>
+                  <td>4</td>
+                  <td>8</td>
+                  <td>60 kg</td>
+                </tr>
+                <tr>
+                  <td>Remada Curvada</td>
+                  <td>3</td>
+                  <td>12</td>
+                  <td>30 kg</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Gráfico de evolução + notificações -->
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <div class="card-header">Gráfico de Evolução</div>
+                <div class="card-subtitle">Carga x Tempo / Repetições x Tempo</div>
+                <div class="placeholder-box">
+                  Área reservada para gráficos de progresso do aluno.
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card">
+                <div class="card-header">Notificações</div>
+                <ul style="list-style: none; font-size: 13px; margin-top: 8px;">
+                  <li>• Novo treino criado pelo seu professor.</li>
+                  <li>• 3 novos comentários no seu mural.</li>
+                  <li>• Lembrete: treino de pernas amanhã.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mural de progresso -->
+          <div class="card">
+            <div class="row" style="margin-bottom: 8px; align-items: center;">
+              <div class="col">
+                <div class="card-header">Mural de Progresso</div>
+                <div class="card-subtitle">Publicações recentes</div>
+              </div>
+              <div class="col" style="text-align:right;">
+                <button class="btn-outline">Compartilhar Treino</button>
+              </div>
+            </div>
+
+            <div class="feed-item">
+              <strong>Você</strong> concluiu o treino de peito e tríceps.
+              <div class="feed-meta">Hoje • 10:32</div>
+              <div class="feed-actions">Curtir • Comentar • Compartilhar</div>
+            </div>
+
+            <div class="feed-item">
+              <strong>Ana Silva</strong> aumentou 10 kg no agachamento.
+              <div class="feed-meta">Ontem • 19:15</div>
+              <div class="feed-actions">Curtir • Comentar • Seguir</div>
+            </div>
+
+            <div class="feed-item">
+              <strong>João Trainer</strong> comentou: “Ótima evolução nas últimas semanas!”
+              <div class="feed-meta">2 dias atrás</div>
+              <div class="feed-actions">Curtir • Responder</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Tela de Ficha de Treino - Professor -->
+    <section id="tela-ficha-professor" class="screen">
+      <div class="layout-with-sidebar">
+        <!-- Lista de alunos -->
+        <aside class="sidebar">
+          <div class="sidebar-title">Alunos</div>
+          <ul>
+            <li>João Santos</li>
+            <li>Ana Silva</li>
+            <li>Carlos Lima</li>
+            <li>Maria Souza</li>
+            <li>+ Novo Aluno</li>
+          </ul>
+        </aside>
+
+        <!-- Ficha de treino do aluno selecionado -->
+        <div>
+          <div class="card">
+            <div class="row" style="margin-bottom: 12px; align-items: center;">
+              <div class="col">
+                <div class="card-header">Ficha de Treino do Aluno</div>
+                <div class="card-subtitle">Configuração de exercícios, séries, repetições e carga</div>
+              </div>
+              <div class="col" style="text-align:right;">
+                <label for="aluno-selecionado" style="font-size: 13px;">Selecionar aluno:</label>
+                <select id="aluno-selecionado" style="max-width: 200px;">
+                  <option>João Santos</option>
+                  <option>Ana Silva</option>
+                  <option>Carlos Lima</option>
+                  <option>Maria Souza</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Organização por dia / grupo muscular -->
+            <div class="row" style="margin-bottom: 12px;">
+              <div class="col">
+                <label for="dia-treino">Dia do Treino</label>
+                <select id="dia-treino">
+                  <option>Segunda - Peito / Tríceps</option>
+                  <option>Terça - Costas / Bíceps</option>
+                  <option>Quarta - Pernas / Ombros</option>
+                  <option>Quinta - Core / Funcional</option>
+                </select>
+              </div>
+              <div class="col">
+                <label for="grupo-muscular">Grupo Muscular</label>
+                <select id="grupo-muscular">
+                  <option>Peito</option>
+                  <option>Costas</option>
+                  <option>Pernas</option>
+                  <option>Ombros</option>
+                  <option>Braços</option>
+                  <option>Core</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Tabela de exercícios da ficha -->
+            <table>
+              <thead>
+                <tr>
+                  <th>Exercício</th>
+                  <th>Séries</th>
+                  <th>Repetições</th>
+                  <th>Carga (kg)</th>
+                  <th>Comentários / Instruções</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="text" value="Supino Reto" /></td>
+                  <td><input type="number" value="4" /></td>
+                  <td><input type="number" value="10" /></td>
+                  <td><input type="number" value="40" /></td>
+                  <td><input type="text" value="Manter escápulas estabilizadas" /></td>
+                </tr>
+                <tr>
+                  <td><input type="text" value="Crucifixo Inclinado" /></td>
+                  <td><input type="number" value="3" /></td>
+                  <td><input type="number" value="12" /></td>
+                  <td><input type="number" value="16" /></td>
+                  <td><input type="text" value="Controle na fase excêntrica" /></td>
+                </tr>
+                <tr>
+                  <td><input type="text" value="Tríceps Corda" /></td>
+                  <td><input type="number" value="3" /></td>
+                  <td><input type="number" value="12" /></td>
+                  <td><input type="number" value="25" /></td>
+                  <td><input type="text" value="Priorizar amplitude completa" /></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div style="margin-top: 10px;">
+              <button class="btn">Adicionar Exercício</button>
+              <button class="btn-secondary">Remover Selecionado</button>
+            </div>
+
+            <div class="form-group" style="margin-top: 12px;">
+              <label for="comentarios-gerais">Comentários gerais para o aluno</label>
+              <textarea id="comentarios-gerais" placeholder="Ex.: Focar em técnica, evitar cargas máximas na primeira semana."></textarea>
+            </div>
+
+            <div style="margin-top: 8px; text-align: right;">
+              <button class="btn">Salvar Ficha</button>
+              <button class="btn-outline">Duplicar Ficha</button>
+            </div>
+          </div>
+
+          <!-- Calendário + botão gráficos -->
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <div class="card-header">Calendário de Treinos</div>
+                <div class="card-subtitle">Visualizar treinos passados e futuros</div>
+                <div class="placeholder-box">
+                  Placeholder de calendário (visualização mensal / semanal dos treinos).
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card">
+                <div class="card-header">Progresso do Aluno</div>
+                <div class="card-subtitle">Gráficos de carga, repetições e desempenho</div>
+                <div class="placeholder-box" style="margin-bottom: 12px;">
+                  Área reservada para gráficos de evolução do aluno.
+                </div>
+                <button class="btn btn-full">Visualizar Gráficos de Progresso</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // JS simples para alternar entre as telas
+    const buttons = document.querySelectorAll('.top-nav button');
+    const screens = document.querySelectorAll('section.screen');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-target');
+
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        screens.forEach(sec => {
+          sec.classList.toggle('active', sec.id === target);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
